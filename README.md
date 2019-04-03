@@ -14,7 +14,7 @@ MSUD, CS 2400, Spring 2019
 2. Execute the program. View the memory. (Use **Tools** from the menu.)
 3. **QUESTION:** What does the program do?
 
-It loads the values in the array and if they are negative it negates them to be positive. It does not store anything back to memory.
+It loads the values in the array and if they are negative it negates them to be positive.
 
 4. Single-step the program and watch the registers, memory locations, and status flags change.
 
@@ -23,11 +23,15 @@ It loads the values in the array and if they are negative it negates them to be 
 2. Execute the program. View the memory. (Use **Tools** from the menu.)
 3. Answer the following questions:
    1. **QUESTION 1:** What is the short program doing that the long program is not?
+   
+   The short program stores the negated array in memory when finished and the long program clears them out when they are popped from the     stack.
+   
    2. **QUESTION 2:** Why do you think the compiler has generated such assembly code?
    
    The code is meant for large programs and handles issues that come up.
    
    3. **QUESTION 3:** How would you try to change the code so that the compiler would generate an assembly program that behaves more like the short one above? The original code is in [`negate.c`](https://github.com/ivogeorg/cs2400-arm-asm-negate-exercise/blob/master/negate.c). Modify it and see if that changes the generated code. (The code is generated in the [Compiler Explorer](https://godbolt.org). Use the **ARM gcc 8.2** compiler. Use the following compiler options: `-fomit-frame-pointer -mcpu=cortex-m3 -mtune=cortex-m3`.)
+   You could make the array global instead of local.
 4. Single-step the program and watch the registers, memory locations, and status flags change.
 5. Modify the long program to do what the short one is doing.
 
